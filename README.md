@@ -41,7 +41,7 @@
 
 ## Why this project?
 
-There are so many excellent coverage badge generation tools out there, why do we need another one? Well, at the time of writing this package (circa early 2021), all the exiting tools (for example, [coverage-badge](https://github.com/dbrgn/coverage-badge)) I had come across ended at generating SVG/PNG files/strings/Base64 images. What you do with this remains entirely up to you.
+There are so many excellent coverage badge generation tools out there, why do we need another one? Well, at the time of writing this package (circa early 2021), all the existing tools (for example, [coverage-badge](https://github.com/dbrgn/coverage-badge)) I had come across ended at generating SVG/PNG files/strings/Base64 images. What you do with this remains entirely up to you.
 
 Now, it is often much easier to simply use online services such as [codecov.io](https://about.codecov.io/) and [coveralls.io](https://coveralls.io/). These services are free for open source projects, but require a monthly subscription for private repos. Many times, we work on private repos, and we wanna be able to automatically have coverage badges in our READMEs. What if you are unable to pay such subscription fees, or maybe you don't want to use a SaaS? Your solution becomes to generate your own badge!
 
