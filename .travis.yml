@@ -1,37 +1,25 @@
-# Config file for automatic testing at travis-ci.com
-
 language: python
 os: linux
 dist: focal
 python:
-  - 3.9
-  - 3.8
-  - 3.7
-  - 3.6
-
-# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+- 3.9
+- 3.8
+- 3.7
+- 3.6
 install:
-  - pip install -U tox-travis
-  - pip install codecov
-
-# Command to run tests, e.g. python setup.py test
+- pip install -U tox-travis
+- pip install codecov
 script: tox
-
 after_success:
-  - codecov
-
-# Assuming you have installed the travis-ci CLI tool, after you
-# create the Github repo and add it to Travis, run the
-# following command to finish PyPI deployment setup:
-# $ travis encrypt --add deploy.password
-# deploy:
-#   provider: pypi
-#   distributions: sdist bdist_wheel
-#   user: __token__
-#   password:
-#     secure: PLEASE_REPLACE_ME
-#   on:
-#     tags: true
-#     repo: engineervix/readme_coverage_badger
-#     python: 3.8
-#   skip_existing: true
+- codecov
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: __token__
+  password:
+    secure: g4+XX6IPN2LmmDOU0FtvZ6GPQtNUttu5gJpGKnZtbrotWPsVhk3vco9pzDrSjEpehqRh4RIvbfZB41Q99rQYCtpVNi8e2icYA78hsgmQ7P6pEg2tROqI3kuQ7mOfxBRHTUskLn8kmb27+OS1Wfs1WQFbDmy5xf14/V/y7Q+tR7bGzsC7VPhaD9avkXPvA2pwMOdbel5CzqfFNWaZQdwE5mPw+GgMuPYAZHndrIRopnlqgfOVvzgEhoLSJs29TPtFFqeJCT1b5mv9FOFes36N89QhtEkLIc51s7F9k5mSv8nAjIJ9E2wsKwPlqpXcYzGbCJQ14PBDAZWc13zD4YVH/nb2wJJ6rEamRWCh3ZvnrTqGgGyK4soP70dUAB4JGrttVk1dVMprvue2a+ogcfQ7r+WoUpVrLxwsdbK0gkHv75gFZCE9TlkHGUVvgxThFrIMldtkwRYvYAVxyZ0F72LuwfbpsGJ4Tl2CH39/d99enw17qXpAt6or1YxC9q1s03ps4XYRHAL+L4VG2sxMInyjALBbbZPlkBrrgvThX6K17j9+tWsIhjECcC0MwGP66jUwg+PEWlhEvxG/8rL4ZRr1+bPoYtph7pM6AuFtbNn+iB3lgoD7m6oRc0SbejOmrIO7XV10RS7WyGuafTG52ZBYafIG1B0eyeQEDp0AMi48AWo=
+  on:
+    tags: true
+    repo: engineervix/readme_coverage_badger
+    python: 3.8
+  skip_existing: true
