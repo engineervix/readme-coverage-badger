@@ -1,0 +1,93 @@
+# Config file for automatic testing at travis-ci.com
+
+language: python
+# ===== Linux ======
+os: linux
+dist: bionic
+python:
+  - 3.6
+  - 3.7
+  - 3.8
+  - 3.9
+
+jobs:
+  include:
+    # ======= OSX ========
+#     ----- changes in Travis images means this doesn't work for versions before 3.7.5 ---
+#     - name: "Python 3.6.5 on macOS 10.13"
+#       os: osx
+#       osx_image: xcode9.4  # Python 3.6.5 running on macOS 10.13
+#       language: shell      # 'language: python' is an error on Travis CI macOS
+#       script: tox
+#       after_success: python3 -m codecov
+    - name: "Python 3.7.9 on macOS 10.14"
+      os: osx
+      osx_image: xcode10.2  # Python 3.7.5 running on macOS 10.14.3
+      language: shell       # 'language: python' is an error on Travis CI macOS
+      script: tox
+      after_success: python3 -m codecov
+    - name: "Python 3.8.0 on macOS 10.14"
+      os: osx
+      osx_image: xcode11.3  # Python 3.8.0 running on macOS 10.14.6
+      language: shell       # 'language: python' is an error on Travis CI macOS
+      script: tox
+      after_success: python3 -m codecov
+    - name: "Python 3.9.0 on macOS 10.14"
+      os: osx
+      osx_image: xcode12.4  # Python 3.9.0 running on macOS 11.2.1
+      language: shell       # 'language: python' is an error on Travis CI macOS
+      script: tox
+      after_success: python3 -m codecov
+    #  ====== WINDOWS =========
+    - name: "Python 3.6.8 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.6.8
+        - python --version
+      env: PATH=/c/Python36:/c/Python36/Scripts:$PATH
+    - name: "Python 3.7.9 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.7.9
+        - python --version
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+    - name: "Python 3.8.8 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.8.8
+        - python --version
+      env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
+    - name: "Python 3.9.2 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.9.2
+        - python --version
+      env: PATH=/c/Python39:/c/Python39/Scripts:$PATH
+
+# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+install: pip install -U tox-travis
+
+# Command to run tests, e.g. python setup.py test
+script: tox
+
+# Assuming you have installed the travis-ci CLI tool, after you
+# create the Github repo and add it to Travis, run the
+# following command to finish PyPI deployment setup:
+# $ travis encrypt --add deploy.password
+# deploy:
+#   provider: pypi
+#   distributions: sdist bdist_wheel
+#   user: __token__
+#   password:
+#     secure: PLEASE_REPLACE_ME
+#   on:
+#     tags: true
+#     repo: engineervix/readme_coverage_badger
+#     python: 3.8
+#   skip_existing: true
+after_success:
+  - codecov

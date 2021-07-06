@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py37', 'py38', 'py39']
+include = '\.pyi?$'
+
+[tool.isort]
+known_third_party = ["colorama", "coverage", "faker", "invoke", "pytest"]
+
+[tool.commitizen]
+version = "0.1.0"
+version_files = [
+    "readme_coverage_badger/__init__.py",
+    "readme_coverage_badger/__main__.py",
+]
+tag_format = "v$major.$minor.$patch"
+changelog_file = "CHANGELOG.md"
+update_changelog_on_bump = true
+annotated_tag = true
+changelog_incremental = true
