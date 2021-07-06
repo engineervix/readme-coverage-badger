@@ -10,10 +10,15 @@ python:
   - 3.6
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+install:
+  - pip install -U tox-travis
+  - pip install codecov
 
 # Command to run tests, e.g. python setup.py test
 script: tox
+
+after_success:
+  - codecov
 
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
@@ -30,5 +35,3 @@ script: tox
 #     repo: engineervix/readme_coverage_badger
 #     python: 3.8
 #   skip_existing: true
-after_success:
-  - codecov

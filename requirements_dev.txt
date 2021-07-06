@@ -12,7 +12,6 @@ mypy==0.910
 pre-commit==2.13.0
 
 # test
-codecov==2.1.11
 faker==8.9.1
 pytest-cov==2.12.1
 pytest-mock==3.6.1
