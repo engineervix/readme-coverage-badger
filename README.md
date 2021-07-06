@@ -1,6 +1,7 @@
 <h1 align="center">Welcome to README Coverage Badger 👋</h1>
 
 [![PyPi](https://img.shields.io/pypi/v/readme-coverage-badger.svg)](https://pypi.python.org/pypi/readme-coverage-badger)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/readme-coverage-badger)
 [![Build Status](https://travis-ci.com/engineervix/readme-coverage-badger.svg?branch=master)](https://travis-ci.com/engineervix/readme-coverage-badger)
 [![Updates](https://pyup.io/repos/github/engineervix/readme-coverage-badger/shield.svg)](https://pyup.io/repos/github/engineervix/readme-coverage-badger/)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
@@ -9,6 +10,8 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen-tools.github.io/commitizen/)
+![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/engineervix/readme-coverage-badger/latest/master)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/readme-coverage-badger)
 [![Twitter: engineervix](https://img.shields.io/twitter/follow/engineervix.svg?style=social)](https://twitter.com/engineervix)
 
 > Generates a coverage badge using coverage.py and the shields.io service. Your README file is then updated with the generated badge.
