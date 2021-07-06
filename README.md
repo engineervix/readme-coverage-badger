@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to README Coverage Badger 👋</h1>
 
-[![PyPi](https://img.shields.io/pypi/v/readme_coverage_badger.svg)](https://pypi.python.org/pypi/readme_coverage_badger)
-[![Build Status](https://img.shields.io/travis/engineervix/readme_coverage_badger.svg)](https://travis-ci.com/engineervix/readme_coverage_badger)
-[![Updates](https://pyup.io/repos/github/engineervix/readme_coverage_badger/shield.svg)](https://pyup.io/repos/github/engineervix/readme_coverage_badger/)
+[![PyPi](https://img.shields.io/pypi/v/readme-coverage-badger.svg)](https://pypi.python.org/pypi/readme-coverage-badger)
+[![Build Status](https://img.shields.io/travis/engineervix/readme-coverage-badger.svg)](https://travis-ci.com/engineervix/readme-coverage-badger)
+[![Updates](https://pyup.io/repos/github/engineervix/readme-coverage-badger/shield.svg)](https://pyup.io/repos/github/engineervix/readme-coverage-badger/)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![codecov](https://codecov.io/gh/engineervix/readme-coverage-badger/branch/master/graph/badge.svg)](https://codecov.io/gh/engineervix/readme-coverage-badger)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/engineervix/readme-coverage-badger/master.svg)](https://results.pre-commit.ci/latest/github/engineervix/readme-coverage-badger/master)
