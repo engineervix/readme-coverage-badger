@@ -49,7 +49,7 @@ This is where this project comes in. It **automatically generates your project's
 
 After using [istanbul-badges-readme](https://github.com/olavoparno/istanbul-badges-readme), I searched for a python alternative but couldn't find anything suitable. The closest I found was [coverage-badge](https://github.com/dbrgn/coverage-badge), and if you look at this project's code, you will see a lot of similarities with [coverage-badge](https://github.com/dbrgn/coverage-badge)!
 
-If you're looking for powerful, _general purpose badge generation tools_ for your projects, you should probably check out projects like [anybadge](https://github.com/jongracecox/anybadge) and [genbadge](https://github.com/smarie/python-genbadge/).
+If what you're looking for is a powerful, _general purpose badge generation tool_ for your projects, then you should probably check out projects like [anybadge](https://github.com/jongracecox/anybadge) and [genbadge](https://github.com/smarie/python-genbadge/).
 
 ## Features
 
@@ -146,7 +146,7 @@ Test other Python versions by running `tox`.
 
 Contributions, issues and feature requests are most welcome! A good place to start is by helping out with the unchecked items in the [TODO](#-todo) section of this README!
 
-Feel free to check [issues page](https://github.com/engineervix/readme-coverage-badger/issues). Please take a look at the [contributing guide](https://github.com/engineervix/readme-coverage-badger/blob/master/CONTRIBUTING.md). In addition, please note the following:
+Feel free to check the [issues page](https://github.com/engineervix/readme-coverage-badger/issues) and take a look at the [contributing guide](https://github.com/engineervix/readme-coverage-badger/blob/master/CONTRIBUTING.md) before you get started. In addition, please note the following:
 
 - if you're making code contributions, please try and write some tests to accompany your code, and ensure that the tests pass. Also, were necessary, update the docs so that they reflect your changes.
 - commit your changes via `cz commit`. Follow the prompts. When you're done, `pre-commit` will be invoked to ensure that your contributions and commits follow defined conventions. See `pre-commit-config.yaml` for more details.
@@ -174,7 +174,7 @@ Please give a ⭐️ if this project helped you!
 
 Copyright © 2021 [Victor Miti](https://github.com/engineervix).
 
-This project is [BSD-3-Clause](https://github.com/engineervix/readme-coverage-badger/blob/main/LICENSE) licensed.
+This project is licensed under the terms of the [BSD-3-Clause](https://github.com/engineervix/readme-coverage-badger/blob/main/LICENSE) license.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
