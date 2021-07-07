@@ -96,6 +96,7 @@ def dist(c):
     # TODO: provide a "clean" option, and improve portability
     c.run("python -m build", pty=True)
     c.run("ls -lah dist", pty=True)
+    c.run("pwd", pty=True)
 
 
 @task
