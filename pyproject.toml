@@ -8,6 +8,7 @@ target-version = ['py36', 'py37', 'py38', 'py39']
 include = '\.pyi?$'
 
 [tool.isort]
+profile = "black"
 known_third_party = ["colorama", "coverage", "faker", "invoke", "pytest"]
 
 [tool.commitizen]
