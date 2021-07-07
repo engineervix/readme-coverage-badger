@@ -12,7 +12,7 @@ profile = "black"
 known_third_party = ["colorama", "coverage", "faker", "invoke", "pytest"]
 
 [tool.commitizen]
-version = "0.1.0"
+version = "0.1.1"
 version_files = [
     "readme_coverage_badger/__init__.py",
     "readme_coverage_badger/__main__.py",
