@@ -176,20 +176,19 @@ def get_badge(total, colour=DEFAULT_COLOUR):
     return shields_badge
 
 
-def readme_location(filename: Union[str, str] = "README.md") -> Path:
+def readme_location(filename: Union[str, str] = "README.md") -> str:
     """Path to the README file"""
-    current_dir = Path(__file__).resolve().parent
-    parent_dir = current_dir.parents[0]
-    readme_file = parent_dir / filename
+    current_dir = os.getcwd()
+    readme_file = os.path.join(current_dir, filename)
 
     return readme_file
 
 
-def update_coverage_badge(readme: Path, cov_string: str, plain: Optional[bool] = False):
+def update_coverage_badge(readme: str, cov_string: str, plain: Optional[bool] = False):
     """update coverage badge in a readme file
 
     Args:
-        readme (Path): readme file where we'll perform in-place substitution
+        readme (str): readme file where we'll perform in-place substitution
         cov_string (str): total test coverage
         plain (bool): whether to use plain colour or not
     """
