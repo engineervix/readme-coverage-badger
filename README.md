@@ -1,26 +1,54 @@
 <h1 align="center">Welcome to README Coverage Badger 👋</h1>
 
-[![PyPi](https://img.shields.io/pypi/v/readme-coverage-badger.svg)](https://pypi.python.org/pypi/readme-coverage-badger)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/readme-coverage-badger)
-[![Build Status](https://travis-ci.com/engineervix/readme-coverage-badger.svg?branch=master)](https://travis-ci.com/engineervix/readme-coverage-badger)
-[![Updates](https://pyup.io/repos/github/engineervix/readme-coverage-badger/shield.svg)](https://pyup.io/repos/github/engineervix/readme-coverage-badger/)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![codecov](https://codecov.io/gh/engineervix/readme-coverage-badger/branch/master/graph/badge.svg)](https://codecov.io/gh/engineervix/readme-coverage-badger)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/engineervix/readme-coverage-badger/master.svg)](https://results.pre-commit.ci/latest/github/engineervix/readme-coverage-badger/master)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen-tools.github.io/commitizen/)
-![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/engineervix/readme-coverage-badger/latest/master)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/readme-coverage-badger)
-[![Twitter: engineervix](https://img.shields.io/twitter/follow/engineervix.svg?style=social)](https://twitter.com/engineervix)
+<p align="center">
+<a href="https://pypi.python.org/pypi/readme-coverage-badger" target="_blank">
+  <img src="https://img.shields.io/pypi/v/readme-coverage-badger.svg" alt="PyPi">
+</a>
+<a href="https://pypi.org/project/readme-coverage-badger" target="_blank">
+  <img src="https://img.shields.io/pypi/pyversions/readme-coverage-badger" alt="PyPI - Python Version">
+</a>
+<a href="https://travis-ci.com/engineervix/readme-coverage-badger" target="_blank">
+  <img src="https://travis-ci.com/engineervix/readme-coverage-badger.svg?branch=master" alt="Build Status">
+</a>
+<a href="https://codecov.io/gh/engineervix/readme-coverage-badger" target="_blank">
+  <img src="https://codecov.io/gh/engineervix/readme-coverage-badger/branch/master/graph/badge.svg" alt="codecov">
+</a>
+<a href="https://results.pre-commit.ci/latest/github/engineervix/readme-coverage-badger/master" target="_blank">
+  <img src="https://results.pre-commit.ci/badge/github/engineervix/readme-coverage-badger/master.svg" alt="pre-commit.ci status">
+</a>
+<a href="https://pyup.io/repos/github/engineervix/readme-coverage-badger/" target="_blank">
+  <img src="https://pyup.io/repos/github/engineervix/readme-coverage-badger/shield.svg" alt="Updates">
+</a>
+<a href="https://pypi.org/project/readme-coverage-badger" target="_blank">
+  <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/readme-coverage-badger">
+</a>
+<a href="https://github.com/engineervix/readme-coverage-badger/commits/master" target="_blank">
+  <img alt="GitHub commits since latest release (by SemVer)" src="https://img.shields.io/github/commits-since/engineervix/readme-coverage-badger/latest/master">
+</a>
+</p>
+
+<p align="center">
+<a href="https://opensource.org/licenses/BSD-3-Clause">
+  <img src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg" alt="License">
+</a>
+<a href="https://github.com/psf/black">
+  <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
+</a>
+<a href="https://conventionalcommits.org">
+  <img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square" alt="Conventional Commits">
+</a>
+<a href="https://commitizen-tools.github.io/commitizen/">
+  <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly">
+</a>
+</p>
 
 > Generates a coverage badge using coverage.py and the shields.io service. Your README file is then updated with the generated badge.
 
-### 🏠 [Homepage](https://github.com/engineervix/readme-coverage-badger)
+**Source Code**: [github.com/engineervix/readme-coverage-badger](https://github.com/engineervix/readme-coverage-badger)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+**Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Why this project?](#why-this-project)
 - [Features](#features)
@@ -35,6 +63,9 @@
 - [🤝 Contributing](#-contributing)
 - [Show your support](#show-your-support)
 - [✅ TODO](#-todo)
+  - [core](#core)
+  - [docs](#docs)
+  - [other](#other)
 - [📝 License](#-license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -132,14 +163,14 @@ Test other Python versions by running `tox`.
 ### Code Formatting
 
 - Run `invoke lint` to run [`flake8`](https://flake8.pycqa.org/en/latest/), [`black`](https://black.readthedocs.io/en/stable/), [`isort`](https://pycqa.github.io/isort/) and [`mypy`](https://mypy.readthedocs.io/en/stable/) on the code.
-- If you get any errors from `black` and/or `isort`, run `invoke lint --fix` or `invoke lint -f` so that black and isort can format your files. If this still doesn't work, don't worry, there's a bunch of pre-commit hooks that that have been set up to deal with this. Take a look at [.pre-commit-config.yaml](.pre-commit-config.yaml).
+- If you get any errors from `black` and/or `isort`, run `invoke lint --fix` or `invoke lint -f` so that black and isort can format your files. Alternatively, just run `pre-commit`. You can take a look at [.pre-commit-config.yaml](https://github.com/engineervix/readme-coverage-badger/blob/master/.pre-commit-config.yaml).
 
 ## Author
 
 👤 **Victor Miti**
 
 - Blog: <https://importthis.tech>
-- Twitter: [@engineervix](https://twitter.com/engineervix)
+- Twitter: [![Twitter: engineervix](https://img.shields.io/twitter/follow/engineervix.svg?style=social)](https://twitter.com/engineervix)
 - Github: [@engineervix](https://github.com/engineervix)
 
 ## 🤝 Contributing
@@ -159,15 +190,25 @@ Please give a ⭐️ if this project helped you!
 
 ## ✅ TODO
 
-- [ ] Add a screenshot / demo in this README
-- [ ] improve CI/CD to cater for GNU/Linux, Mac OS X and Windows
+### core
+
+- [ ] Cater for not only markdown but also restructuredtext, and automatically detect if a file's syntax is markdown or restructuredtext if no extension given
+- [ ] Provide option to generate badge in HTML format
+- [ ] Provide option to generate to `stdout` and skip substitution in a README file. This could be useful if you're using the tool in a script and you just want the result so that you can use it elsewhere.
+- [ ] Allow for flexibility in choosing whatever colours one wants
+- [ ] Allow for specifying *Alt Text* on the badge URL, for example `![Alt Text]()` or `![Alt Text](anything here)`
 - [ ] Make the codebase fully typed
 - [ ] Improve the Tests by [parametrizing](https://docs.pytest.org/en/stable/example/parametrize.html) fixtures and test functions
-- [ ] Cater for both markdown and restructuredtext, and detect which is which if no extension given
-- [ ] Allow for flexibility in choosing whatever colours one wants
-- [ ] Allow for specifying *alt_text* on the badge URL, for example `![Alt Text]()` or `![Alt Text](anything here)`
+- [ ] improve CI/CD to cater for GNU/Linux, Mac OS X and Windows
 - [ ] Create pre-commit hook
+
+### docs
+
+- [ ] Add a screenshot / demo in this README
 - [ ] Create standalone documentation for hosting either on Github Pages or readthedocs. This README is already detailed enough to serve as documentation!
+
+### other
+
 - [ ] It would be fun if we had some kind of a [badger](https://en.wikipedia.org/wiki/Badger) logo!
 
 ## 📝 License
