@@ -18,7 +18,7 @@ version_files = [
     "readme_coverage_badger/__main__.py",
 ]
 tag_format = "v$major.$minor.$patch"
-changelog_file = "CHANGELOG.md"
-update_changelog_on_bump = true
 annotated_tag = true
-changelog_incremental = true
+update_changelog_on_bump = false
+# changelog_file = "CHANGELOG.md"
+# changelog_incremental = true
