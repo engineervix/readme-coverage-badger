@@ -12,7 +12,7 @@ mypy==0.910
 pre-commit==2.13.0
 
 # test
-faker==8.9.1
+faker==8.10.0
 pytest-cov==2.12.1
 pytest-mock==3.6.1
 pytest-sugar==0.9.4
