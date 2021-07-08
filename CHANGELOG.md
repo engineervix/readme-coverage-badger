@@ -35,7 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 * bug in `readme_location` ([df68dc2](https://github.com/engineervix/readme-coverage-badger/commit/df68dc23bde654053b82a8abf6f55f81a7a0a636))
 
-## [v0.1.0](https://github.com/engineervix/readme-coverage-badger/compare/v0.0.0...v0.1.0) (2021-07-06)
+## [v0.1.0](https://github.com/engineervix/readme-coverage-badger/compare/8c618b...v0.1.0) (2021-07-06)
 
 
 ### 🪠 Maintenance
