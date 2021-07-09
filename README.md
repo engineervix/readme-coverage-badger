@@ -44,6 +44,11 @@
 
 > Generates a coverage badge using coverage.py and the shields.io service. Your README file is then updated with the generated badge.
 
+<p align="center">
+  <img src="https://github.com/engineervix/readme-coverage-badger/blob/assets/demo.gif" alt="demo.gif">
+</p>
+<!-- ![demo.gif](../assets/demo.gif?raw=true) -->
+
 **Source Code**: [github.com/engineervix/readme-coverage-badger](https://github.com/engineervix/readme-coverage-badger)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -204,7 +209,7 @@ Please give a ⭐️ if this project helped you!
 
 ### docs
 
-- [ ] Add a screenshot / demo in this README
+- [X] Add a screenshot / demo in this README
 - [ ] Create standalone documentation for hosting either on Github Pages or readthedocs. This README is already detailed enough to serve as documentation!
 
 ### other
