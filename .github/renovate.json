@@ -1,0 +1,22 @@
+{
+  "extends": ["config:base"],
+  "labels": ["dependencies", "python"],
+  "packageRules": [
+    {
+      "excludePackagePatterns": ["colorama", "coverage"],
+      "matchupdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "semanticCommitType": "build",
+      "semanticCommitScope": "deps-dev"
+    },
+    {
+      "matchPackagePatterns": ["colorama", "coverage"],
+      "matchupdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "semanticCommitType": "build",
+      "semanticCommitScope": "deps"
+    }
+  ],
+  "timezone": "Africa/Lusaka",
+  "schedule": ["after 10pm every weekday", "every weekend"]
+}
