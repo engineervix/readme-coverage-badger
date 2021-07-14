@@ -39,7 +39,7 @@ repos:
 #     hooks:
 #     - id: bandit
 - repo: https://github.com/commitizen-tools/commitizen
-  rev: v2.17.12
+  rev: v2.17.13
   hooks:
     - id: commitizen
       stages: [commit-msg]
