@@ -41,5 +41,5 @@ deploy:
     release_notes_file: "$HOME/LATEST_RELEASE_NOTES.md"
     on:
       tags: true
-      repo: engineervix/build-test
+      repo: engineervix/readme-coverage-badger
       python: 3.8
