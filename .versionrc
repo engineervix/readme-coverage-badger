@@ -10,44 +10,49 @@
       "section": "🐛 Bug Fixes"
     },
     {
-      "type": "chore",
-      "hidden": false,
-      "section": "🛠 Miscellaneous"
-    },
-    {
       "type": "docs",
-      "hidden": false,
-      "section": "📝 Docs"
+      "section": "📝 Docs",
+      "hidden": false
     },
     {
       "type": "style",
-      "hidden": false,
-      "section": "🛠 Miscellaneous"
+      "section": "💄 Styling",
+      "hidden": false
     },
     {
       "type": "refactor",
       "hidden": false,
-      "section": "🛠 Miscellaneous"
+      "section": "♻️ Code Refactoring"
     },
     {
       "type": "perf",
-      "hidden": false,
-      "section": "🚀 Features"
+      "section": "⚡️ Performance Improvements",
+      "hidden": false
     },
     {
       "type": "test",
-      "hidden": false,
-      "section": "🪠 Maintenance"
+      "section": "✅ Tests",
+      "hidden": false
     },
     {
       "type": "build",
-      "hidden": false,
-      "section": "⚙️ Build System / Dependencies"
+      "section": "⚙️ Build System",
+      "hidden": false
     },
     {
       "type": "ci",
-      "hidden": false,
-      "section": "🪠 Maintenance"
+      "section": "👷 CI/CD",
+      "hidden": false
+    },
+    {
+      "type": "chore",
+      "section": "🚧 Others",
+      "hidden": true
+    },
+    {
+      "type": "revert",
+      "section": "⏪️ Reverts",
+      "hidden": true
     }
   ],
   "scripts": {
