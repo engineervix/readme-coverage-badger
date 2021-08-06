@@ -204,7 +204,7 @@ Please give a ⭐️ if this project helped you!
 - [ ] Allow for specifying *Alt Text* on the badge URL, for example `![Alt Text]()` or `![Alt Text](anything here)`
 - [ ] Make the codebase fully typed
 - [ ] Improve the Tests by [parametrizing](https://docs.pytest.org/en/stable/example/parametrize.html) fixtures and test functions
-- [ ] improve CI/CD to cater for GNU/Linux, Mac OS X and Windows
+- [X] improve CI/CD to cater for GNU/Linux, Mac OS X and Windows
 - [ ] Create pre-commit hook
 
 ### docs
