@@ -7,8 +7,8 @@
 <a href="https://pypi.org/project/readme-coverage-badger" target="_blank">
   <img src="https://img.shields.io/pypi/pyversions/readme-coverage-badger" alt="PyPI - Python Version">
 </a>
-<a href="https://travis-ci.com/engineervix/readme-coverage-badger" target="_blank">
-  <img src="https://travis-ci.com/engineervix/readme-coverage-badger.svg?branch=master" alt="Build Status">
+<a href="https://github.com/engineervix/readme-coverage-badger/actions/workflows/main.yml" target="_blank">
+  <img src="https://github.com/engineervix/readme-coverage-badger/actions/workflows/main.yml/badge.svg" alt="Build Status">
 </a>
 <a href="https://codecov.io/gh/engineervix/readme-coverage-badger" target="_blank">
   <img src="https://codecov.io/gh/engineervix/readme-coverage-badger/branch/master/graph/badge.svg" alt="codecov">

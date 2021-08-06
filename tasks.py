@@ -1,8 +1,9 @@
 import os
-from pathlib import Path
 
 from colorama import Fore, init
 from invoke import task
+
+# from pathlib import Path
 
 
 def execute_bump_hack(c):
@@ -230,7 +231,8 @@ def get_release_notes(c):
             elif pattern_to_match in line and count == 1:
                 break
 
-    home = str(Path.home())
-    release_notes = os.path.join(home, "LATEST_RELEASE_NOTES.md")
+    # home = str(Path.home())
+    # release_notes = os.path.join(home, "LATEST_RELEASE_NOTES.md")
+    release_notes = os.path.join("../", "LATEST_RELEASE_NOTES.md")
     with open(release_notes, "w") as f:
         print("".join(lines), file=f, end="")
