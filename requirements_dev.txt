@@ -3,21 +3,21 @@ colorama==0.4.4
 coverage==5.5
 
 # dev
-black==21.6b0
-commitizen==2.17.12
-flake8==3.9.2
+black==21.12b0
+commitizen==2.20.4
+flake8==4.0.1
 invoke==1.6.0
-isort==5.9.2
-mypy==0.910
-pre-commit==2.13.0
+isort==5.10.1
+mypy==0.931
+pre-commit==2.17.0
 
 # test
-faker==8.10.0
-pytest-cov==2.12.1
+faker==11.3.0
+pytest-cov==3.0.0
 pytest-mock==3.6.1
 pytest-sugar==0.9.4
-tox==3.23.1
+tox==3.24.5
 
 # dist
-build==0.5.1
-twine==3.4.1
+build==0.7.0
+twine==3.7.1
