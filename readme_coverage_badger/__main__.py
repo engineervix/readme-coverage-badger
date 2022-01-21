@@ -9,7 +9,7 @@ Requires that `coverage` and `colorama` be installed within the Python
 environment you are running this script in.
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 
 # Python Standard Library
