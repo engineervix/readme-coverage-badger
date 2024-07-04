@@ -3,7 +3,7 @@ colorama==0.4.4
 coverage==5.5
 
 # dev
-black==21.12b0
+black==24.4.2
 commitizen==2.20.4
 flake8==4.0.1
 invoke==1.6.0
