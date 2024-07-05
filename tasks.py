@@ -1,6 +1,6 @@
 import os
 
-from colorama import Fore, init
+from colorama import Fore, just_fix_windows_console
 from invoke import task
 
 # from pathlib import Path
@@ -166,7 +166,7 @@ def bump(c):
     First we check that there are no unstaged files in your repo before running
     """
 
-    init()
+    just_fix_windows_console()
 
     # TODO: this can be part of the "release" collection, where we bump, build and release
     unstaged_str = "not staged for commit"
