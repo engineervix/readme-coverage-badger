@@ -39,7 +39,7 @@ LOG_COLORS = {
     logging.CRITICAL: Fore.RED + Back.WHITE,
 }
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 
@@ -80,7 +80,7 @@ class Devnull(object):
 
 def configure_logging():
     """Logging configuration for the project"""
-    handler = logging.StreamHandler()
+    handler = logging.StreamHandler(sys.stdout)
     handler.setLevel(logging.DEBUG)
 
     # we want to display levelname, asctime and message
