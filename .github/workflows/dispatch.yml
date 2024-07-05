@@ -7,29 +7,26 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: 'Action to perform'
+        description: "Action to perform"
         required: true
-        default: 'Deploy to PyPI & Create GitHub Release'
+        default: "Deploy to PyPI & Create GitHub Release"
 
 jobs:
-
   # Runs all steps on the VM
   test:
-
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [ubuntu-20.04, macos-10.15, windows-2019]
-        python-version: [3.6, 3.7, 3.8, 3.9, '3.10']
+        os: [ubuntu-22.04, macos-14, windows-2022]
+        python-version: [3.8, 3.9, "3.10", "3.11", "3.12"]
 
     steps:
-
       - name: Checkout Code Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }} on ${{ matrix.os }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -51,21 +48,20 @@ jobs:
   # Runs all steps on the VM
   # Deploy to PyPI & create a GitHub Release when the test job succeeds, and only on pushes to tags.
   deploy:
-
     needs: test
 
     if: needs.test.result == 'success' && startsWith( github.ref, 'refs/tags/v' )
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout Code Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: "3.12"
 
       - name: Install Dependencies
         run: |
@@ -109,7 +105,7 @@ jobs:
           invoke get-release-notes
 
       - name: GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: ${{ steps.get_release_title.outputs.RELEASE_NAME }}
           body_path: ../LATEST_RELEASE_NOTES.md
