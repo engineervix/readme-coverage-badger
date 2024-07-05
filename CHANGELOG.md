@@ -4,6 +4,47 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.0](https://github.com/engineervix/readme-coverage-badger/compare/v0.1.2...v1.0.0) (2024-07-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Python <3.8 no longer supported
+
+### ⚙️ Build System
+
+* bump outdated dependencies to latest versions ([63a5f78](https://github.com/engineervix/readme-coverage-badger/commit/63a5f782de106a5358f97e1010afbcc88ccb1065))
+* update outdated pre-commit hooks ([775fe7e](https://github.com/engineervix/readme-coverage-badger/commit/775fe7e5d55685118b0d441a4c9f2c990a92b428))
+
+
+### 🚀 Features
+
+* add support for Python 3.11, 3.12 & drop Python 3.6 and 3.7 ([e30c803](https://github.com/engineervix/readme-coverage-badger/commit/e30c8035b208f1068f763a84f7f6ff7825d71e25))
+
+
+### 📝 Docs
+
+* update docs ([151a20f](https://github.com/engineervix/readme-coverage-badger/commit/151a20f453dfb8d0fde103c8b172d16329e4f1ed))
+
+
+### 💄 Styling
+
+* update Black's target versions ([52ee283](https://github.com/engineervix/readme-coverage-badger/commit/52ee283e6b6c27022128d575505e77c2194a5232))
+
+
+### ♻️ Code Refactoring
+
+* update logging configuration ([89c8276](https://github.com/engineervix/readme-coverage-badger/commit/89c827657372a0ecfae29a2d8585f33f33c3ecfb))
+
+
+### 👷 CI/CD
+
+* add manually triggered workflow ([aac0ae3](https://github.com/engineervix/readme-coverage-badger/commit/aac0ae3668cdce216d12d7dd8189b4eb1cc37dcc))
+* bump codecov/codecov-action from v2 to v4 ([fece05b](https://github.com/engineervix/readme-coverage-badger/commit/fece05bc48a6a2e022f18aaf1960eeab2f513098))
+* disable publishing to testPyPI ([ebe85af](https://github.com/engineervix/readme-coverage-badger/commit/ebe85af548d3087aae622eb49302c350b94227bb))
+* update CI to use latest actions and OSes ([f0a92d3](https://github.com/engineervix/readme-coverage-badger/commit/f0a92d3c52b6d76d578cd5b3e74c5352afb4cf3e))
+* you need an upload token from codecov.io ([806eeb9](https://github.com/engineervix/readme-coverage-badger/commit/806eeb97cd723d223afc2dc19ee669292eb70334))
+
 ## [v0.1.2](https://github.com/engineervix/readme-coverage-badger/compare/v0.1.1...v0.1.2) (2022-01-21)
 
 
