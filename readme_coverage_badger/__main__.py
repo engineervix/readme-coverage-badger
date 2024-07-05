@@ -28,16 +28,19 @@ from urllib.parse import quote
 import coverage
 
 # other external dependency
-from colorama import Fore, Style, init
+from colorama import Back, Fore, Style, just_fix_windows_console
 
 # specify colors for different logging levels
 LOG_COLORS = {
-    # logging.DEBUG: Fore.WHITE,
+    logging.DEBUG: Fore.CYAN,
     logging.INFO: Fore.GREEN,
     logging.WARNING: Fore.YELLOW,
     logging.ERROR: Fore.RED,
-    # logging.CRITICAL: Fore.RED,
+    logging.CRITICAL: Fore.RED + Back.WHITE,
 }
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 
 class ColourFormatter(logging.Formatter):
@@ -47,7 +50,7 @@ class ColourFormatter(logging.Formatter):
         https://uran198.github.io/en/python/2016/07/12/colorful-python-logging.html
     """
 
-    def format(self, record, *args, **kwargs):
+    def format(self, record):
         """
         if the corresponding logger has children, they may receive modified
         record, so we want to keep it intact
@@ -60,8 +63,8 @@ class ColourFormatter(logging.Formatter):
                 color_begin=LOG_COLORS[new_record.levelno],
                 color_end=Style.RESET_ALL,
             )
-        # now we can let standart formatting take care of the rest
-        return super(ColourFormatter, self).format(new_record, *args, **kwargs)
+        # now we can let standard formatting take care of the rest
+        return super().format(new_record)
 
 
 class Devnull(object):
@@ -77,17 +80,13 @@ class Devnull(object):
 
 def configure_logging():
     """Logging configuration for the project"""
-    logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
+    handler = logging.StreamHandler()
+    handler.setLevel(logging.DEBUG)
 
     # we want to display levelname, asctime and message
     formatter = ColourFormatter(
         "%(levelname)-12s: %(asctime)-8s %(message)s", datefmt="%d-%b-%y %H:%M:%S"
     )
-
-    # this handler will write to sys.stdout by default
-    handler = logging.StreamHandler(sys.stdout)
-    handler.setLevel(logging.DEBUG)
     handler.setFormatter(formatter)
 
     # adding handler to our logger
@@ -236,9 +235,6 @@ def update_coverage_badge(readme: str, cov_string: str, plain: Optional[bool] = 
 def main(args=None):
     """Console script entry point"""
 
-    init()
-    configure_logging()
-
     if not args:
         args = sys.argv[1:]
 
@@ -294,4 +290,6 @@ def main(args=None):
 
 
 if __name__ == "__main__":
+    just_fix_windows_console()
+    configure_logging()
     main()

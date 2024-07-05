@@ -53,7 +53,8 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Why this project?](#why-this-project)
 - [Features](#features)
@@ -91,7 +92,7 @@ If what you're looking for is a powerful, _general purpose badge generation tool
 
 - automatically generates your project's coverage badge using the [shields.io](https://shields.io/) service, and then updates your project's README with the newly generated badge
 - simple CLI tool (`readme-cov`) with helpful messages
-- tested on python 3.6 to 3.9 with coverage ≥ 84%
+- tested on python 3.8 to 3.12 with coverage ≥ 84%
 - free software: BSD-3-Clause license
 - generates different colours depending on the coverage percentage. Optionally generate plain colour (green) regardless of percentage
 - minimal external dependencies – this tool only has 2 external dependencies; [Coverage.py](https://github.com/nedbat/coveragepy) (obviously!) and [colorama](https://github.com/tartley/colorama) (for cross-platform coloured terminal output)
@@ -99,7 +100,7 @@ If what you're looking for is a powerful, _general purpose badge generation tool
 The table below shows the coverage thresholds, associated colours and examples of generated badges:
 
 | Coverage            | Colour      | Example                                                                                    |
-|---------------------|-------------|--------------------------------------------------------------------------------------------|
+| ------------------- | ----------- | ------------------------------------------------------------------------------------------ |
 | 0 ≤ coverage < 40   | red         | ![Code Coverage Red ](https://img.shields.io/badge/Coverage-13%25-red.svg)                 |
 | 40 ≤ coverage < 60  | orange      | ![Code Coverage Orange ](https://img.shields.io/badge/Coverage-46%25-orange.svg)           |
 | 60 ≤ coverage < 75  | yellow      | ![Code Coverage Yellow ](https://img.shields.io/badge/Coverage-69%25-yellow.svg)           |
@@ -130,7 +131,7 @@ The tool operates on the basis of the following assumptions:
 
 - you have a README.md or README file at the root of your project
 - your README file is in markdown format. I know, some Pythonistas prefer restructuredtext! Sadly, this isn't supported (yet)
-- Somewhere in your your README is a string in the form: `![Code Coverage]()` or `![Code Coverage](anything here)`. This is what gets updated in-place (using [`re.sub()`](https://docs.python.org/3.8/library/re.html#re.sub)) when the script runs.
+- Somewhere in your your README is a string in the form: `![Code Coverage]()` or `![Code Coverage](anything here)`. This is what gets updated in-place (using [`re.sub()`](https://docs.python.org/3.12/library/re.html#re.sub)) when the script runs.
 - the script is called from the root of your project repo, which has coverage.py already configured, and the coverage already updated (you have already run your tests prior to running the script)
 - If the coverage badge in your README file is already up to date, your README file won't be updated, you will only be notified
 
@@ -138,7 +139,7 @@ The tool operates on the basis of the following assumptions:
 
 ### First things first
 
-- ensure that you have [Python 3.6+](https://www.python.org/) on your machine, and that you are able to configure python [**virtual environment**](https://realpython.com/python-virtual-environments-a-primer/)s.
+- ensure that you have [Python 3.8+](https://www.python.org/) on your machine, and that you are able to configure python [**virtual environment**](https://realpython.com/python-virtual-environments-a-primer/)s.
 - ensure that you have [git](https://git-scm.com/) setup on your machine.
 
 ### Getting Started
@@ -174,7 +175,7 @@ Test other Python versions by running `tox`.
 
 👤 **Victor Miti**
 
-- Blog: <https://importthis.tech>
+- Blog: <https://blog.victor.co.zm>
 - Twitter: [![Twitter: engineervix](https://img.shields.io/twitter/follow/engineervix.svg?style=social)](https://twitter.com/engineervix)
 - Github: [@engineervix](https://github.com/engineervix)
 
@@ -187,7 +188,7 @@ Feel free to check the [issues page](https://github.com/engineervix/readme-cover
 - if you're making code contributions, please try and write some tests to accompany your code, and ensure that the tests pass. Also, were necessary, update the docs so that they reflect your changes.
 - commit your changes via `cz commit`. Follow the prompts. When you're done, `pre-commit` will be invoked to ensure that your contributions and commits follow defined conventions. See `pre-commit-config.yaml` for more details.
 - your commit messages should follow the conventions described [here](https://www.conventionalcommits.org/en/v1.0.0/). Write your commit message in the imperative: "Fix bug" and not "Fixed bug" or "Fixes bug." This convention matches up with commit messages generated by commands like `git merge` and `git revert`.
-Once you are done, please create a [pull request](https://github.com/engineervix/readme-coverage-badger/pulls).
+  Once you are done, please create a [pull request](https://github.com/engineervix/readme-coverage-badger/pulls).
 
 ## Show your support
 
@@ -201,15 +202,15 @@ Please give a ⭐️ if this project helped you!
 - [ ] Provide option to generate badge in HTML format
 - [ ] Provide option to generate to `stdout` and skip substitution in a README file. This could be useful if you're using the tool in a script and you just want the result so that you can use it elsewhere.
 - [ ] Allow for flexibility in choosing whatever colours one wants
-- [ ] Allow for specifying *Alt Text* on the badge URL, for example `![Alt Text]()` or `![Alt Text](anything here)`
+- [ ] Allow for specifying _Alt Text_ on the badge URL, for example `![Alt Text]()` or `![Alt Text](anything here)`
 - [ ] Make the codebase fully typed
 - [ ] Improve the Tests by [parametrizing](https://docs.pytest.org/en/stable/example/parametrize.html) fixtures and test functions
-- [X] improve CI/CD to cater for GNU/Linux, Mac OS X and Windows
+- [x] improve CI/CD to cater for GNU/Linux, Mac OS X and Windows
 - [ ] Create pre-commit hook
 
 ### docs
 
-- [X] Add a screenshot / demo in this README
+- [x] Add a screenshot / demo in this README
 - [ ] Create standalone documentation for hosting either on Github Pages or readthedocs. This README is already detailed enough to serve as documentation!
 
 ### other
@@ -218,10 +219,12 @@ Please give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2021 [Victor Miti](https://github.com/engineervix).
+Copyright © 2021 - present [Victor Miti](https://github.com/engineervix).
 
 This project is licensed under the terms of the [BSD-3-Clause](https://github.com/engineervix/readme-coverage-badger/blob/main/LICENSE) license.
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
-***
+
+---
