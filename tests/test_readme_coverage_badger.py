@@ -68,11 +68,11 @@ def test_successful_readme_coverage_badger(fake_readme, cb, caplog, monkeypatch)
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
-    cb.init()
+    cb.just_fix_windows_console()
     cb.configure_logging()
     cb.main([])
-    caplog.set_level(logging.DEBUG)
     for record in caplog.records:
         assert record.levelname == "INFO"
     assert (
@@ -90,11 +90,11 @@ def test_successful_readme_md_coverage_badger(fake_readme_md, cb, caplog, monkey
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
-    cb.init()
+    cb.just_fix_windows_console()
     cb.configure_logging()
     cb.main([])
-    caplog.set_level(logging.DEBUG)
     for record in caplog.records:
         assert record.levelname == "INFO"
     assert (
@@ -113,12 +113,13 @@ def test_no_readme_file(cb, caplog, monkeypatch):
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
-    cb.init()
+    cb.just_fix_windows_console()
     cb.configure_logging()
     with pytest.raises(SystemExit) as e:
         cb.main([])
-    caplog.set_level(logging.DEBUG)
+
     caplog_messages = [(record.levelname, record.msg) for record in caplog.records]
     valid_readmes = (
         f"{Fore.MAGENTA}README.md{Fore.RESET} or {Fore.MAGENTA}README{Fore.RESET}"
@@ -147,12 +148,13 @@ def test_readme_no_replacement_string(
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
-    cb.init()
+    cb.just_fix_windows_console()
     cb.configure_logging()
     with pytest.raises(SystemExit) as e:
         cb.main([])
-    caplog.set_level(logging.DEBUG)
+
     caplog_messages = [(record.levelname, record.msg) for record in caplog.records]
     empty_badge_pattern = "![Code Coverage]()"
     help_message = Fore.MAGENTA + empty_badge_pattern + Fore.RESET
@@ -179,12 +181,13 @@ def test_coverage_up_to_date(fake_readme_up_to_date, cb, caplog, monkeypatch):
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
-    cb.init()
+    cb.just_fix_windows_console()
     cb.configure_logging()
     with pytest.raises(SystemExit) as e:
         cb.main([])
-    caplog.set_level(logging.DEBUG)
+
     caplog_messages = [(record.levelname, record.msg) for record in caplog.records]
     assert (
         "INFO",
@@ -208,12 +211,13 @@ def test_no_coverage(fake_readme_md, no_total, caplog, monkeypatch):
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
-    no_total.init()
+    no_total.just_fix_windows_console()
     no_total.configure_logging()
     with pytest.raises(SystemExit) as excinfo:
         no_total.main([])
-    caplog.set_level(logging.DEBUG)
+
     caplog_messages = [(record.levelname, record.msg) for record in caplog.records]
     assert (
         "ERROR",
@@ -235,13 +239,13 @@ def test_coverage_is_none(fake_readme, cb, caplog, monkeypatch, mocker):
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
-    cb.init()
+    cb.just_fix_windows_console()
     cb.configure_logging()
     with pytest.raises(SystemExit) as excinfo:
         cb.main([])
 
-    caplog.set_level(logging.DEBUG)
     caplog_messages = [(record.levelname, record.msg) for record in caplog.records]
     availability = Fore.CYAN + str("coverage" in sys.modules) + Fore.RESET
     assert (
@@ -289,15 +293,16 @@ def test_plain_colour_mode(fake_readme, caplog, monkeypatch):
         return os.path.join(TESTS_DIR, readme_file)
 
     monkeypatch.setattr(__main__, "readme_location", fake_readme_location)
+    caplog.set_level(logging.DEBUG)
 
     default_colour = __main__.DEFAULT_COLOUR
     assert default_colour == "green"
     for total in ("97.89", "93", "80", "65", "45", "15", "n/a"):
         __main__.get_total = lambda: total
-        __main__.init()
+        __main__.just_fix_windows_console()
         __main__.configure_logging()
         __main__.main(["-p"])
-        caplog.set_level(logging.DEBUG)
+
         badge_url = f"https://img.shields.io/badge/Coverage-{total}{quote('%')}-{default_colour}.svg"
         with open(os.path.join(TESTS_DIR, readme_file), "r") as f:
             text = f.read()
