@@ -4,7 +4,7 @@ coverage==7.5.4
 
 # dev
 black==24.4.2
-commitizen==3.27.0
+commitizen==3.31.0
 flake8==7.1.0
 invoke==2.2.0
 isort==5.13.2
