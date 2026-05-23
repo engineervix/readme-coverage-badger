@@ -92,7 +92,7 @@ If what you're looking for is a powerful, _general purpose badge generation tool
 
 - automatically generates your project's coverage badge using the [shields.io](https://shields.io/) service, and then updates your project's README with the newly generated badge
 - simple CLI tool (`readme-cov`) with helpful messages
-- tested on python 3.8 to 3.12 with coverage ≥ 84%
+- tested on python 3.10 to 3.14 with coverage ≥ 84%
 - free software: BSD-3-Clause license
 - generates different colours depending on the coverage percentage. Optionally generate plain colour (green) regardless of percentage
 - minimal external dependencies – this tool only has 2 external dependencies; [Coverage.py](https://github.com/nedbat/coveragepy) (obviously!) and [colorama](https://github.com/tartley/colorama) (for cross-platform coloured terminal output)
@@ -139,7 +139,7 @@ The tool operates on the basis of the following assumptions:
 
 ### First things first
 
-- ensure that you have [Python 3.8+](https://www.python.org/) on your machine, and that you are able to configure python [**virtual environment**](https://realpython.com/python-virtual-environments-a-primer/)s.
+- ensure that you have [Python 3.10+](https://www.python.org/) on your machine, and that you are able to configure python [**virtual environment**](https://realpython.com/python-virtual-environments-a-primer/)s.
 - ensure that you have [git](https://git-scm.com/) setup on your machine.
 
 ### Getting Started
