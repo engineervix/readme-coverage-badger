@@ -1,83 +1,78 @@
 import os
+import tomllib
+from pathlib import Path
 
-from colorama import Fore, just_fix_windows_console
+from colorama import Fore, init
 from invoke import task
 
-# from pathlib import Path
 
-
-def execute_bump_hack(c):
-    """A little hack that combines commitizen-tools and standard-version
+def create_release(c, branch, is_first_release=False, push=False):
+    """Create a release by combining `commitizen-tools` and `commit-and-tag-version`
 
     commitizen-tools understands Python stuff, but I don't like the
-    generated changelogs. I had no time to look at how to cusstomize them, so I
-    decided to use standard-version (from the Javascript world). Unfortunately,
-    standard-version doesn't understand Python stuff, and since I didn't have
-    time to write my own updater for python files and toml files, I have to
-    make the two work together!
+    generated changelogs. I decided to use commit-and-tag-version instead.
+    Unfortunately, commit-and-tag-version doesn't understand Python projects,
+    so I make the two work together.
 
-    This requires standard-version to be installed globally on your system:
-    ``npm i -g standard-version``
-    If you're setting it up for the first time on another project, you will probably
-    encounter problems generating the entire changelog. See how Łukasz Nojek came up
-    with a hack to deal with this:
-    https://lukasznojek.com/blog/2020/03/how-to-regenerate-changelog-using-standard-version/
+    This requires `commit-and-tag-version` to be installed on your machine:
+    ``npm i -g commit-and-tag-version``
 
-    The formula (workflow) for is as follows:
+    See <https://github.com/absolute-version/commit-and-tag-version> for more details.
+
+    The logic here is as follows:
 
     1. cz bump --files-only
-    2. git add pyproject.toml readme_coverage_badger/__init__.py readme_coverage_badger/__main__.py
-    3. standard-version --commit-all --release-as <result from cz if not none>
-    4. git push --follow-tags origin master
-
-    # TODO: add additional options here, which can passed to either cz or standard version
+    2. git add pyproject.toml and other files specified in pyproject.toml
+    3. commit-and-tag-version --commit-all --release-as <result from cz if not none>
+    4. git push --follow-tags origin [branch]
     """
-    print(f"{Fore.MAGENTA}Attempting to bump using commitizen-tools ...{Fore.RESET}")
-    c.run("cz bump --files-only > .bump_result.txt", pty=True)
-    str_of_interest = "increment detected: "
-    result = ""
-    with open(".bump_result.txt", "r") as br:
-        for line in br:
-            if str_of_interest in line:
-                result = line
-                break
-    release_type = result.replace(str_of_interest, "").strip("\n").lower()
-    print(f"cz bump result: {release_type}")
-    if release_type == "none":
-        print(f"{Fore.YELLOW}No increment detected, cannot bump{Fore.RESET}")
-    elif release_type in ["major", "minor", "patch"]:
-        print(f"{Fore.GREEN}Looks like the bump command worked!{Fore.RESET}")
-        print(f"{Fore.GREEN}Now handing over to standard-version ...{Fore.RESET}")
-        # first, stage the bumped files
+    if is_first_release:
+        print(f"{Fore.YELLOW}Generating changelog for first release ...{Fore.RESET}")
         c.run(
-            "git add pyproject.toml readme_coverage_badger/__init__.py readme_coverage_badger/__main__.py",
+            'commit-and-tag-version --first-release --releaseCommitMessageFormat "chore: first release v{{{{currentTag}}}} 🎉"',
             pty=True,
         )
-        # now we can pass result to standard-release
-        print(f"{Fore.GREEN}let me retrieve the tag we're bumping from ...{Fore.RESET}")
-        # get_previous_tag = c.run(
-        #     "git describe --abbrev=0 --tags `git rev-list --tags --skip=1  --max-count=1`",
-        #     pty=True,
-        # )
-        get_current_tag = c.run(
-            "git describe --abbrev=0 --tags `git rev-list --tags --skip=0  --max-count=1`",
-            pty=True,
-        )
-        previous_tag = get_current_tag.stdout.rstrip()
-        c.run(
-            f'standard-version --commit-all --release-as {release_type} --releaseCommitMessageFormat "bump: ✈️ {previous_tag} → v{{{{currentTag}}}}"',
-            pty=True,
-        )
-        # push to origin
-        c.run("git push --follow-tags origin master", pty=True)
+        if push:
+            c.run(f"git push --follow-tags origin {branch}", pty=True)
     else:
-        print(
-            f"{Fore.RED}Something went horribly wrong, please figure it out yourself{Fore.RESET}"
-        )
-        print(f"{Fore.RED}Bump failed!{Fore.RESET}")
+        print(f"{Fore.MAGENTA}Attempting to bump using commitizen-tools ...{Fore.RESET}")
+        c.run("cz bump --files-only > .bump_result.txt", pty=True)
+        str_of_interest = "increment detected: "
+        result = ""
+        with open(".bump_result.txt") as br:
+            for line in br:
+                if str_of_interest in line:
+                    result = line
+                    break
+        release_type = result.replace(str_of_interest, "").strip("\n").lower()
+        print(f"cz bump result: {release_type}")
+        if release_type == "none":
+            print(f"{Fore.YELLOW}No increment detected, cannot bump{Fore.RESET}")
+        elif release_type in ["major", "minor", "patch"]:
+            print(f"{Fore.GREEN}Looks like the bump command worked!{Fore.RESET}")
+            print(f"{Fore.GREEN}Now handing over to commit-and-tag-version ...{Fore.RESET}")
+            with open("pyproject.toml", "rb") as f:
+                toml_dict = tomllib.load(f)
+            version_files = toml_dict["tool"]["commitizen"]["version_files"]
+            files_to_add = " ".join(version_files)
+            c.run(f"git add pyproject.toml {files_to_add}", pty=True)
+            print(f"{Fore.GREEN}let me retrieve the tag we're bumping from ...{Fore.RESET}")
+            get_current_tag = c.run(
+                "git describe --abbrev=0 --tags `git rev-list --tags --skip=0  --max-count=1`",
+                pty=True,
+            )
+            previous_tag = get_current_tag.stdout.rstrip()
+            c.run(
+                f'commit-and-tag-version --commit-all --release-as {release_type} --releaseCommitMessageFormat "bump: ✈️ {previous_tag} → v{{{{currentTag}}}}"',
+                pty=True,
+            )
+            if push:
+                c.run(f"git push --follow-tags origin {branch}", pty=True)
+        else:
+            print(f"{Fore.RED}Something went horribly wrong, please investigate & fix it!{Fore.RESET}")
+            print(f"{Fore.RED}Bump failed!{Fore.RESET}")
 
-    # clean up
-    c.run("rm -vf .bump_result.txt", pty=True)
+        Path(".bump_result.txt").unlink(missing_ok=True)
 
 
 @task(
@@ -158,26 +153,28 @@ def clean_test(c):
     c.run("rm -fr .pytest_cache", pty=True)
 
 
-@task
-def bump(c):
-    """Use Commitizen Tools & standard-version to bump version and generate changelog
+@task(
+    help={
+        "branch": "The branch against which you wanna bump (default: master)",
+        "first": "Is this the first release?",
+    }
+)
+def bump(c, branch="master", first=False):
+    """Use Commitizen Tools & commit-and-tag-version to bump version and generate changelog
 
     Run this task when you want to prepare a release.
-    First we check that there are no unstaged files in your repo before running
+    First we check that there are no unstaged files before running
     """
 
-    just_fix_windows_console()
+    init()
 
-    # TODO: this can be part of the "release" collection, where we bump, build and release
     unstaged_str = "not staged for commit"
     uncommitted_str = "to be committed"
     check = c.run("git status", pty=True)
     if unstaged_str not in check.stdout or uncommitted_str not in check.stdout:
-        execute_bump_hack(c)
+        create_release(c, branch, first, push=False)
     else:
-        print(
-            f"{Fore.RED}Sorry mate, please ensure there are no pending git operations{Fore.RESET}"
-        )
+        print(f"{Fore.RED}Sorry mate, please ensure there are no unstaged files before creating a release{Fore.RESET}")
 
 
 @task
