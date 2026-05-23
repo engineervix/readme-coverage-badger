@@ -4,6 +4,29 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0](https://github.com/engineervix/readme-coverage-badger/compare/v1.0.1...v1.1.0) (2026-05-23)
+
+
+### 🚀 Features
+
+* add Python 3.14 support & drop Python 3.8/3.9 (EOL) ([61347f3](https://github.com/engineervix/readme-coverage-badger/commit/61347f319de8f1cfcee8c346e854a2553a3102fa))
+
+
+### ⚙️ Build System
+
+* add Python 3.13 support to setup.cfg, main.yml, and pyproject.toml ([223d53d](https://github.com/engineervix/readme-coverage-badger/commit/223d53dc84b9e716f57ddb81cab062e28b062fb2))
+* **deps-dev:** update dependency python to 3.13 ([#141](https://github.com/engineervix/readme-coverage-badger/issues/141)) ([7232af1](https://github.com/engineervix/readme-coverage-badger/commit/7232af1473c2561d713ce6ccb53f9df94efff704))
+* **deps:** bump all outdated deps ([195bcaf](https://github.com/engineervix/readme-coverage-badger/commit/195bcafa0ebc362ab698e500408599b80cfb8e52))
+
+
+### 👷 CI/CD
+
+* **deps:** update actions/checkout action to v5 ([#144](https://github.com/engineervix/readme-coverage-badger/issues/144)) ([9d4bce0](https://github.com/engineervix/readme-coverage-badger/commit/9d4bce03b7b55871aa52371aadc121f6c054d178))
+* **deps:** update actions/first-interaction action to v3 ([#145](https://github.com/engineervix/readme-coverage-badger/issues/145)) ([82ce1b9](https://github.com/engineervix/readme-coverage-badger/commit/82ce1b921f55809c3d018f9a020992816eed923e))
+* **deps:** update actions/setup-python action to v6 ([#146](https://github.com/engineervix/readme-coverage-badger/issues/146)) ([9a47b55](https://github.com/engineervix/readme-coverage-badger/commit/9a47b5515394c41b4e2d85db7a7ef69846436bee))
+* **deps:** update codecov/codecov-action action to v5 ([#140](https://github.com/engineervix/readme-coverage-badger/issues/140)) ([6ceeda0](https://github.com/engineervix/readme-coverage-badger/commit/6ceeda07036a255e8fc0d2372896ea3c7526aeb5))
+* **deps:** update dependency ubuntu to v24 ([#139](https://github.com/engineervix/readme-coverage-badger/issues/139)) ([aebd701](https://github.com/engineervix/readme-coverage-badger/commit/aebd701dbe654569ab212825227459c11877f22a))
+
 ## [v1.0.1](https://github.com/engineervix/readme-coverage-badger/compare/v1.0.0...v1.0.1) (2024-07-05)
 
 
