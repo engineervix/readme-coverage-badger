@@ -19,5 +19,5 @@ pytest-sugar==1.1.1
 tox==4.56.1
 
 # dist
-build==1.5.0
+build==1.5.1
 twine==6.2.0
