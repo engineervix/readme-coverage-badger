@@ -1,6 +1,6 @@
 # core
 colorama==0.4.6
-coverage==7.14.3
+coverage==7.15.1
 
 # dev
 black==26.5.1
