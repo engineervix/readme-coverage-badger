@@ -9,7 +9,7 @@ flake8==7.3.0
 invoke==3.0.3
 isort==8.0.1
 mypy==2.3.1
-pre-commit==4.6.1
+pre-commit==4.6.2
 
 # test
 faker==40.36.0
