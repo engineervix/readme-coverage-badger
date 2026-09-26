@@ -5,7 +5,7 @@ coverage==7.16.1
 # dev
 black==26.5.1
 commitizen==4.19.0
-flake8==7.3.0
+flake8==7.4.1
 invoke==3.0.3
 isort==8.0.1
 mypy==2.3.1
