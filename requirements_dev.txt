@@ -7,7 +7,7 @@ black==26.5.1
 commitizen==4.19.2
 flake8==7.4.1
 invoke==3.0.3
-isort==8.0.1
+isort==9.0.2
 mypy==2.4.0
 pre-commit==4.6.2
 
